@@ -4,6 +4,7 @@ from django.shortcuts import redirect
 from django.template.response import TemplateResponse
 from django.utils.translation import pgettext
 
+from django.urls import reverse
 from ...account.models import Address
 from ...core import analytics
 from ...core.exceptions import InsufficientStock
@@ -58,7 +59,10 @@ def _handle_order_placement(request, checkout):
     checkout.delete()
 
     # Redirect the user to the payment page
-    return redirect("order:payment", token=order.token)
+    # return redirect("order:payment", token=order.token)
+    #  redirect to checkout success
+    url = reverse("order:checkout-success", kwargs={"token": order.token})
+    return redirect(url)
 
 
 def summary_with_shipping_view(request, checkout):

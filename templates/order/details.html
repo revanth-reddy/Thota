@@ -57,7 +57,7 @@
           </a>
         {% else %}
           <a href="{% url "order:payment" token=order.token %}" class="btn btn-primary">
-            {% trans "Pay for order" context "Order details primary action" %}
+            {% trans "Pay for order at your Doorstep" context "Order details primary action" %}
           </a>
         {% endif %}
       {% endif %}
