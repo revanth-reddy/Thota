@@ -26,7 +26,7 @@ def get_bool_from_env(name, default_value):
     return default_value
 
 
-DEBUG = True
+DEBUG = False
 
 SITE_ID = 1
 
@@ -52,13 +52,21 @@ if REDIS_URL:
 CACHES = {"default": django_cache_url.config()}
 
 DATABASES = {
-    "default": dj_database_url.config(
-        default="postgres://myprojectuser:password@localhost:5432/myproject", conn_max_age=600
-    )
+#    "default": dj_database_url.config(
+#        default="postgres://myprojectuser:password@localhost:5432/myproject", conn_max_age=600
+#    )
+'default': {
+    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': 'myproject',
+    'USER': 'myprojectuser',
+    'PASSWORD': 'password',
+    'HOST': 'thota-database-instance-identifier.c99jpnh9tpxc.ap-south-1.rds.amazonaws.com',
+    'PORT': '5432',
+    }
 }
 
 
-TIME_ZONE = "America/Chicago"
+TIME_ZONE = "Asia/Kolkata"
 LANGUAGE_CODE = "en"
 LANGUAGES = [
     ("ar", _("Arabic")),
@@ -446,7 +454,7 @@ bootstrap4 = {
 
 TEST_RUNNER = "tests.runner.PytestTestRunner"
 
-ALLOWED_HOSTS = get_list(os.environ.get("ALLOWED_HOSTS", "localhost,127.0.0.1"))
+ALLOWED_HOSTS = get_list(os.environ.get("ALLOWED_HOSTS", "*"))
 ALLOWED_GRAPHQL_ORIGINS = os.environ.get("ALLOWED_GRAPHQL_ORIGINS", "*")
 
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
