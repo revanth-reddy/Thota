@@ -43,6 +43,9 @@
   &__block1 {
     .home--square {
       background-image: url('../images/cover.png');
+      background-repeat:no-repeat;
+      background-size:contain;
+      background-position:center;
       @include media-breakpoint-up(md) {
         &:before {
           padding-top: 50%;
