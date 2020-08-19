@@ -182,6 +182,13 @@
                   {% trans "Configuration"  context "Dashboard configuration" %}
                 </p>
                 <ul>
+                  {% if perms.slideshow.manage_slideshow %}
+                    <li class="{% block menu_slideshow_class %}{% endblock %}">
+                      <a href="{% url 'dashboard:slideshow-list' %}">
+                        {% trans "Slideshow" context "Dashboard Slideshow list" %}
+                      </a>
+                    </li>
+                  {% endif %}
                   {% if perms.product.manage_products %}
                     <li class="{% block menu_product_types_class %}{% endblock %}">
                       <a href="{% url 'dashboard:product-type-list' %}">

@@ -1,0 +1,29 @@
+{% extends "dashboard/base.html" %}
+{% load i18n %}
+{% load static %}
+{% load status %}
+{% load taxed_prices %}
+{% load utils %}
+{% load materializecss %}
+
+{% block title %}
+  {% trans "Slideshow" context "Dashboard Slideshow" %} - {{ block.super }}
+{% endblock %}
+
+{% block body_class %}Slideshow{% endblock %}
+
+{% block content %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Upload</button>
+  </form>
+  <br><br><br><br><br><br>
+  <p><a href="{% url 'dashboard:slideshow-list' %}">Return to Slideshow</a></p>
+
+  <br><br><br><br><br><br>
+  <h3>
+    <a href="{% url 'dashboard:slideshow-delete' pk=slide.pk %}">Delete this?</a>
+  </h3>
+  
+{% endblock %}

@@ -26,7 +26,7 @@ def get_bool_from_env(name, default_value):
     return default_value
 
 
-DEBUG = False
+DEBUG = True
 
 SITE_ID = 1
 
@@ -52,66 +52,24 @@ if REDIS_URL:
 CACHES = {"default": django_cache_url.config()}
 
 DATABASES = {
-#    "default": dj_database_url.config(
-#        default="postgres://myprojectuser:password@localhost:5432/myproject", conn_max_age=600
-#    )
-'default': {
-    'ENGINE': 'django.db.backends.postgresql',
-    'NAME': 'myproject',
-    'USER': 'myprojectuser',
-    'PASSWORD': 'password',
-    'HOST': 'thota-database-instance-identifier.c99jpnh9tpxc.ap-south-1.rds.amazonaws.com',
-    'PORT': '5432',
-    }
+   "default": dj_database_url.config(
+       default="postgres://myprojectuser:password@localhost:5432/myproject", conn_max_age=600
+   )
+# 'default': {
+#     'ENGINE': 'django.db.backends.postgresql',
+#     'NAME': 'myproject',
+#     'USER': 'myprojectuser',
+#     'PASSWORD': 'password',
+#     'HOST': 'thota-database-instance-identifier.c99jpnh9tpxc.ap-south-1.rds.amazonaws.com',
+#     'PORT': '5432',
+#     }
 }
 
 
 TIME_ZONE = "Asia/Kolkata"
 LANGUAGE_CODE = "en"
 LANGUAGES = [
-    ("ar", _("Arabic")),
-    ("az", _("Azerbaijani")),
-    ("bg", _("Bulgarian")),
-    ("bn", _("Bengali")),
-    ("ca", _("Catalan")),
-    ("cs", _("Czech")),
-    ("da", _("Danish")),
-    ("de", _("German")),
-    ("el", _("Greek")),
     ("en", _("English")),
-    ("es", _("Spanish")),
-    ("es-co", _("Colombian Spanish")),
-    ("et", _("Estonian")),
-    ("fa", _("Persian")),
-    ("fr", _("French")),
-    ("hi", _("Hindi")),
-    ("hu", _("Hungarian")),
-    ("hy", _("Armenian")),
-    ("id", _("Indonesian")),
-    ("is", _("Icelandic")),
-    ("it", _("Italian")),
-    ("ja", _("Japanese")),
-    ("ko", _("Korean")),
-    ("lt", _("Lithuanian")),
-    ("mn", _("Mongolian")),
-    ("nb", _("Norwegian")),
-    ("nl", _("Dutch")),
-    ("pl", _("Polish")),
-    ("pt", _("Portuguese")),
-    ("pt-br", _("Brazilian Portuguese")),
-    ("ro", _("Romanian")),
-    ("ru", _("Russian")),
-    ("sk", _("Slovak")),
-    ("sq", _("Albanian")),
-    ("sr", _("Serbian")),
-    ("sw", _("Swahili")),
-    ("sv", _("Swedish")),
-    ("th", _("Thai")),
-    ("tr", _("Turkish")),
-    ("uk", _("Ukrainian")),
-    ("vi", _("Vietnamese")),
-    ("zh-hans", _("Simplified Chinese")),
-    ("zh-hant", _("Traditional Chinese")),
 ]
 LOCALE_PATHS = [os.path.join(PROJECT_ROOT, "locale")]
 USE_I18N = True
@@ -262,6 +220,7 @@ INSTALLED_APPS = [
     "saleor.page",
     "saleor.payment",
     "saleor.webhook",
+    "saleor.slideshow",
     # External apps
     "versatileimagefield",
     "django_babel",

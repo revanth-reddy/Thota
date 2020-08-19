@@ -19,10 +19,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="{{ site.name }}">
     <meta name="og:type" content="website">
-    {% get_available_languages as LANGUAGES %}
-    {% for lang_code, language_name in LANGUAGES %}
-      <link rel="alternate" hreflang="{{ lang_code }}" href="{% translate_url url=request.path lang_code=lang_code %}" />
-    {% endfor %}
+
   {% endblock meta %}
 
   {% include 'favicon.html' %}
@@ -31,11 +28,11 @@
   {% block stylesheet %}{% endblock stylesheet %}
 
   {% block meta_tags %}
-    <meta property="og:title" content="{{ site.settings.translated.header_text }}">
-    <meta property="og:description" content="{{ site.settings.translated.description }}">
-    <meta name="description" content="{{ site.settings.translated.description }}">
-    <meta property="og:url" content="{{ request.build_absolute_uri }}">
-    <meta property="og:image" content="{% static "images/block1.png" %}">
+    <meta property="og:title" content="Thota.Store">
+    <meta property="og:description" content="Thota.Store is a brand new shop delivering  fruits and veggies at your doorstep. The idea is mainly about connecting Farmers and Customers.">
+    <meta name="description" content="Thota.Store is a brand new shop delivering  fruits and veggies at your doorstep. The idea is mainly about connecting Farmers and Customers.">
+    <meta property="og:url" content="https://thota.store">
+    <meta property="og:image" content="{% static "images/cover.png" %}">
   {% endblock meta_tags %}
 
   <link rel="manifest" href="{% url "manifest" %}" />
@@ -45,7 +42,7 @@
     window.OneSignal = window.OneSignal || [];
     OneSignal.push(function() {
       OneSignal.init({
-        appId: "d7c2ef05-e7ff-4155-9ccf-c9f8df3c7783",
+        appId: "03cbf204-dad7-4fc2-aacb-6a38249d6368",
       });
     });
   </script>

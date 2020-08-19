@@ -7,6 +7,7 @@ from draftjs_sanitizer import SafeJSONEncoder
 from impersonate.views import impersonate as orig_impersonate
 
 from ..account.models import User
+from ..slideshow.models import Slideshow
 from ..dashboard.views import staff_member_required
 from ..product.utils import products_for_homepage
 from ..product.utils.availability import products_with_availability
@@ -27,6 +28,7 @@ def home(request):
         )
     )
     webpage_schema = get_webpage_schema(request)
+    slides = Slideshow.objects.all()
     return TemplateResponse(
         request,
         "home.html",
@@ -34,6 +36,7 @@ def home(request):
             "parent": None,
             "products": products,
             "webpage_schema": json.dumps(webpage_schema, cls=SafeJSONEncoder),
+            "slides": slides,
         },
     )
 
