@@ -18,6 +18,7 @@ class Slideshow(SeoModel, PublishableModel):
     image = VersatileImageField(
         upload_to="slideshow", blank=False, null=False
     )
+    link = models.URLField(blank=True)
     created = models.DateTimeField(auto_now_add=True)
 
     class Meta:

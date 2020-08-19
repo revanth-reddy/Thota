@@ -4,7 +4,7 @@
 {% block content %}
 <style>
     .slideshow-container {
-      /* max-width: 1000px; */
+      max-width: 1000px;
       position: relative;
       margin: auto
   }
@@ -16,36 +16,6 @@
       
   }
 
-  .prev,
-  .next {
-      cursor: pointer;
-      position: absolute;
-      top: 50%;
-      width: auto;
-      margin-top: -22px;
-      padding: 16px;
-      color: #222428;
-      font-weight: bold;
-      font-size: 30px;
-      transition: .6s ease;
-      border-radius: 0 3px 3px 0
-  }
-
-  .next {
-      right: -50px;
-      border-radius: 3px 3px 3px 3px
-  }
-
-  .prev {
-      left: -50px;
-      border-radius: 3px 3px 3px 3px
-  }
-
-  .prev:hover,
-  .next:hover {
-      color: #f2f2f2;
-      background-color: rgba(0, 0, 0, 0.8)
-  }
 
   .text {
       color: #f2f2f2;
@@ -158,17 +128,16 @@
       <div class="slideshow-container">
         <div class="slideshow-inner">
           {% for slide in slides%}
-          <div class="mySlides fade1">
-            <img  src='{{slide.image.url}}'' style='height: 100%;' alt="{{slide.content}}"/>
-            <div class="text">{{slide.content}}</div>
-          </div>
+          <a href="{{slide.link}}">
+            <div class="mySlides fade1">
+              <img  src='{{slide.image.url}}'' style='width: 100%' alt="{{slide.content}}"/>
+              <div class="text">{{slide.content}}</div>
+            </div>
+          </a>
           {% endfor %}
         </div>
       
-      
-        <a class="prev" style="color: #5bd0a4;" onclick='plusSlides(-1)'>&#10094;</a>
-        <a class="next" style="color: #5bd0a4;" onclick='plusSlides(1)'>&#10095;</a>
-        </div>
+      </div>
         <br/>
         
         
