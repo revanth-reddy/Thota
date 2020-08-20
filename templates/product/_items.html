@@ -22,6 +22,7 @@
           {% if availability.available %}
             {% price_range availability.price_range %}
             {% if availability.on_sale %}
+            <del>{% price_range availability.price_range_undiscounted%}</del>
               {% if availability.price_range_undiscounted.start != availability.price_range.start %}
                 <div class="product-list__sale">
                   <svg data-src="{% static "images/sale-bg.svg" %}" />
