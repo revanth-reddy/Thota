@@ -26,7 +26,7 @@ def get_bool_from_env(name, default_value):
     return default_value
 
 
-DEBUG = False
+DEBUG = True
 
 SITE_ID = 1
 
@@ -52,17 +52,17 @@ if REDIS_URL:
 CACHES = {"default": django_cache_url.config()}
 
 DATABASES = {
-#    "default": dj_database_url.config(
-#        default="postgres://myprojectuser:password@localhost:5432/myproject", conn_max_age=600
-#    )
-'default': {
-    'ENGINE': 'django.db.backends.postgresql',
-    'NAME': 'myproject',
-    'USER': 'myprojectuser',
-    'PASSWORD': 'password',
-    'HOST': 'thota-database-instance-identifier.c99jpnh9tpxc.ap-south-1.rds.amazonaws.com',
-    'PORT': '5432',
-    }
+   "default": dj_database_url.config(
+       default="postgres://myprojectuser:password@localhost:5432/myproject", conn_max_age=600
+   )
+# 'default': {
+#     'ENGINE': 'django.db.backends.postgresql',
+#     'NAME': 'myproject',
+#     'USER': 'myprojectuser',
+#     'PASSWORD': 'password',
+#     'HOST': 'thota-database-instance-identifier.c99jpnh9tpxc.ap-south-1.rds.amazonaws.com',
+#     'PORT': '5432',
+#     }
 }
 
 
