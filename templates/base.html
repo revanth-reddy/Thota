@@ -70,11 +70,11 @@
         </div>
         <div class="col-6">
           <ul class="float-right">
-            <li>
+            <!-- <li>
               <a href="{% url "team" %}" rel="noopener">
                 {% trans "Team" context "Main navigation item" %}
               </a>
-            </li>
+            </li> -->
             {% if user.is_authenticated %}
               {% if user.is_staff or request.impersonator.is_staff %}
                 <li>
